@@ -21,9 +21,8 @@ public class SUV extends Vehicles {
         return rupiah.format(this.rent);
     }
 
-    public String getTotalIncome() {
-        NumberFormat rupiah = NumberFormat.getCurrencyInstance(new Locale("id","ID"));
-        return rupiah.format(this.totalIncome);
+    public long getTotalIncome() {
+        return this.totalIncome;
     }
 
     public void setRent(double rentSalary) {

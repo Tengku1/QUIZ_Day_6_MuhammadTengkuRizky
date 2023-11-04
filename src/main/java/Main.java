@@ -9,14 +9,15 @@ public class Main {
         int firstOption = scanner.nextInt();
         System.out.println();
         scanner.nextLine();
-        System.out.println("Pilih Jenis Kendaraan : ");
-        System.out.println("1. SUV\n2. Taxi\n3. Private Jet\n4. Boat\n5. All Vehicles");
-        System.out.print("Pilih Menu : ");
-        int secondOption = scanner.nextInt();
-        System.out.println();
         System.out.println("=======================================================");
         VehicleInterface vehicleInterface = new VehicleImplementation();
         if(firstOption == 1) {
+            System.out.println("Pilih Jenis Kendaraan : ");
+            System.out.println("1. SUV\n2. Taxi\n3. Private Jet\n4. Boat\n5. All Vehicles");
+            System.out.print("Pilih Menu : ");
+            int secondOption = scanner.nextInt();
+            System.out.println();
+
             if(secondOption == 1) {
                 var listVehicles = vehicleInterface.dataSuv();
                 vehicleInterface.printVehicles(listVehicles);
@@ -39,7 +40,30 @@ public class Main {
             }
         }
         if(firstOption == 2) {
+            System.out.println("Pilih Jenis Kendaraan : ");
+            System.out.println("1. Cars\n2. Planes\n3. Boats\n4. All Vehicles");
+            System.out.print("Pilih Menu : ");
+            int secondOption = scanner.nextInt();
+            System.out.println();
+            Summary summary = new Summary();
 
+            switch (secondOption) {
+                case 1:
+                    long incomeCars = summary.incomeCars();
+                    summary.printTotalIncome("TotalIncomeCar ",incomeCars);
+                    break;
+                case 2:
+                    long incomePlanes = summary.incomePlanes();
+                    summary.printTotalIncome("TotalIncomePlane ",incomePlanes);
+                    break;
+                case 3:
+                    long incomeBoats = summary.incomeBoats();
+                    summary.printTotalIncome("TotalIncomeBoat ",incomeBoats);
+                    break;
+                case 4:
+                    summary.printTotalIncome("All Total Vehicle Incomes ",summary.incomeCars() + summary.incomePlanes() + summary.incomeBoats());
+                    break;
+            }
         }
         System.out.println("=======================================================");
     }
